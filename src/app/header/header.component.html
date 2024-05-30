@@ -1,0 +1,81 @@
+<nav
+  class="navbar navbar-expand-lg fixed-top"
+  style="background-color: #1f4e86"
+  data-bs-theme="dark"
+>
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      (click)="toggleState()"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarTogglerDemo03"
+      [ngClass]="{ collapse: isCollapse }"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-link">
+          <a
+            class="nav-link p-0"
+            type="button"
+            aria-current="page"
+            routerLink="/home"
+            [ngClass]="{ collapse: isCollapse }"
+            ><span class="material-icons text-white">home</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-white"
+            aria-current="page"
+            routerLink="/list"
+            *ngIf="loggedIn"
+            ><b>Países</b></a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link active text-white"
+            aria-current="page"
+            routerLink="/new"
+            *ngIf="loggedIn"
+            ><b>Nuevo</b></a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="nav-item text-white">
+      <a
+        class="nav-link pr-1"
+        type="button"
+        *ngIf="loggedIn"
+        (click)="onLogout()"
+        ><span
+          class="material-icons text-white h3"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Salir"
+          >logout</span
+        ></a
+      >
+      <a class="nav-link" type="button" *ngIf="!loggedIn" (click)="onLogin()"
+        ><span
+          class="material-icons text-white h2"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Iniciar sesión"
+          >account_circle</span
+        ></a
+      >
+    </div>
+  </div>
+</nav>

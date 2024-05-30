@@ -1,0 +1,57 @@
+<div
+  class="row d-flex justify-content-center align-content-center flex-wrap mx-lg-0 mx-4"
+  style="gap: 3rem; margin-top: 100px; margin-bottom: 100px"
+>
+<h3 class="text-center"><b>Paises de América</b></h3>
+  <div
+    class="card col-sm-12 col-md-6 col-lg-3 shadow border-secondary"
+    *ngFor="let item of listCountries"
+  >
+    <div class="card-header bg-white">
+      <img src="{{ item.flag }}" class="card-img-top" width="60px" />
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><strong>{{ item.name }}</strong></h5>
+      <p class="card-text">
+        <b>Capital: </b>{{ item.capital }} <br />
+        <b>Modena: </b>{{ item.currency }}
+        <br />
+        <b>Pertenece a: </b>{{ item.type }}
+      </p>
+      <div class="d-flex mt-2 gap-2 justify-content-center align-content-center">
+        <a
+          type="button"
+          class="btn btn-outline-primary"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          title="Detalle"
+          (click)="onGoToDetail(item)"
+        >
+          <span class="material-icons">visibility</span>
+        </a>
+        <a
+          type="button"
+          class="btn btn-outline-success"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Editar"
+          (click)="onGoToEdit(item)"
+        >
+          <span class="material-icons">edit</span>
+        </a>
+        <a
+          type="button"
+          class="btn btn-outline-danger"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          data-bs-custom="custom-tooltip"
+          title="Eliminar"
+          (click)="onDelete(item)"
+        >
+          <span class="material-icons">delete</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,52 @@
+<div class="mx-lg-5" style="margin-top: 80px; margin-bottom: 80px">
+  <div class="btn-group mx-5 my-3">
+    <button type="button" class="btn text-white" style="background-color: #6aa1e9" (click)="onGoBack()">
+      <span
+        class="material-icons flex pr-3"
+        style="vertical-align: top; padding-right: 10px"
+        >arrow_back_ios</span
+      >
+      <span>Volver</span>
+    </button>
+  </div>
+  <div class="card mx-5 mb-4 border border-secondary-subtle">
+    <div class="card-header" style="background-color: #84b6f4;">
+      <div class="row text-white">
+        <h4>Detalles de {{ country.name }}</h4>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row row-gap-2 col-gap-2">
+        <div class="col-md-9 px-0 px-md-2">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <h6>País:</h6>
+              {{ country.name }}
+            </li>
+            <li class="list-group-item">
+              <h6>Capital:</h6>
+              {{ country.capital }}
+            </li>
+            <li class="list-group-item">
+              <h6>Pertenece a:</h6>
+              {{ country.type }}
+            </li>
+            <li class="list-group-item">
+              <h6>Moneda:</h6>
+              {{ country.currency }}
+            </li>
+            <li class="list-group-item">
+              <h6>Descripción:</h6>
+              {{ country.description }}
+            </li>
+          </ul>
+        </div>
+        <div
+          class="col-md-3 text-center d-flex align-items-center justify-content-center rounded border border-secondary-subtle py-2"
+        >
+          <img width="200px" src="{{ country.flag }}" alt="imagen 1" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

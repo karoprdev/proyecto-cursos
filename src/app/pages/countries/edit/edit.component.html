@@ -1,0 +1,166 @@
+<div class="d-flex justify-content-center align-items-center mt-4 mb-5 mx-4">
+  <form
+    class="my-3 col-md-6"
+    #countryForm="ngForm"
+    (ngSubmit)="onSave(countryForm.value)"
+  >
+    <div class="row mt-5 mb-3 text-secondary">
+      <h2>Detalle del país</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div
+          class="col my-2 text-center"
+          *ngIf="country.flag != ''; else elseBlock"
+        >
+          <img
+            width="210px"
+            height="150px"
+            src="{{ country.flag }}"
+            alt="{{ country.name }}"
+          />
+        </div>
+        <ng-template #elseBlock>
+          <div class="col my-2 text-center">
+            <img
+              width="180px"
+              height="140px"
+              src="../assets/img/photo.jpeg"
+              alt="Imagen no encontrada"
+            />
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-md-6">
+        <div class="my-2">
+          <label for="countryName">País:</label>
+          <input
+            type="text"
+            id="countryName"
+            name="name"
+            class="form-control shadow-none"
+            #name="ngModel"
+            [(ngModel)]="country.name"
+            [ngClass]="{
+              'is-valid': !name.invalid,
+              'is-invalid': name.invalid
+            }"
+            minlength="3"
+            required
+          />
+        </div>
+        <div class="my-3">
+          <label for="countryCapital">Capital:</label>
+          <input
+            type="text"
+            id="countryCapital"
+            name="capital"
+            class="form-control shadow-none"
+            #capital="ngModel"
+            [(ngModel)]="country.capital"
+            [ngClass]="{
+              'is-valid': !capital.invalid,
+              'is-invalid': capital.invalid
+            }"
+            minlength="3"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 py-2">
+          <label for="countryCurrency">Moneda:</label>
+          <input
+            type="text"
+            id="countryCurrency"
+            name="currency"
+            class="form-control shadow-none"
+            #currency="ngModel"
+            [(ngModel)]="country.currency"
+            [ngClass]="{
+              'is-valid': !currency.invalid,
+              'is-invalid': currency.invalid
+            }"
+            minlength="3"
+            required
+          />
+        </div>
+        <div class="col-md-6 py-2">
+          <label for="countryType">Pertenece a:</label>
+          <input
+            type="text"
+            id="countryType"
+            name="type"
+            class="form-control shadow-none"
+            #type="ngModel"
+            [(ngModel)]="country.type"
+            [ngClass]="{
+              'is-valid': !type.invalid,
+              'is-invalid': type.invalid
+            }"
+            minlength="3"
+            required
+          />
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-12 py-2">
+        <label for="countryFlag">URL de la bandera:</label>
+        <input
+          type="text"
+          id="countryFlag"
+          name="flag"
+          class="form-control shadow-none"
+          #flag="ngModel"
+          [(ngModel)]="country.flag"
+          [ngClass]="{ 'is-valid': !flag.invalid, 'is-invalid': flag.invalid }"
+          minlength="3"
+          required
+        />
+      </div>
+      <div class="col-md-12 py-2">
+        <label for="countryDescription">Descripción:</label>
+        <textarea
+          type="text"
+          id="countryDescription"
+          name="description"
+          class="form-control shadow-none"
+          placeholder="Dirección"
+          #description="ngModel"
+          [(ngModel)]="country.description"
+          [ngClass]="{
+            'is-valid': !description.invalid,
+            'is-invalid': description.invalid
+          }"
+          required
+        ></textarea>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-between mb-4">
+      <div class="btn-group col-md-3 my-2 my-md-3">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="countryForm.invalid"
+        >
+          <span
+            class="material-icons flex pr-3"
+            style="vertical-align: top; padding-right: 10px"
+            >save</span
+          >Guardar
+        </button>
+      </div>
+      <div class="btn-group col-md-3 my-2 my-md-3">
+        <button type="button" class="btn btn-secondary" (click)="onGoBack()">
+          <span
+            class="material-icons flex pr-3"
+            style="vertical-align: top; padding-right: 10px"
+            >arrow_back_ios</span
+          >
+          <span>Volver</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

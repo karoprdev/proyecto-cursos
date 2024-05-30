@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center align-items-center my-5 mx-4">
+  <form [formGroup]="myForm">
+    <h2 class="mt-5 mb-3 text-center"><b>Iniciar sesión</b></h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Correo</label>
+      <input
+        type="email"
+        class="form-control shadow-none"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="email"
+      />
+      <div
+        *ngIf="c.email.invalid && (c.email.dirty || c.email.touched)"
+        class="text-danger"
+      >
+        <div *ngIf="c.email.errors?.['required']">
+          Debes ingresar un correo.
+        </div>
+        <div *ngIf="c.email.errors?.['email']">
+          El correo debe tener un formato válido.
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label shadow-none"
+        >Contraseña</label
+      >
+      <input
+        type="password"
+        class="form-control shadow-none"
+        id="exampleInputPassword1"
+        formControlName="password"
+      />
+      <div
+        *ngIf="c.password.invalid && (c.password.dirty || c.password.touched)"
+        class="text-danger"
+      >
+        <div *ngIf="c.password.errors?.['required']">
+          Debes ingresar una contraseña.
+        </div>
+        <div *ngIf="c.password.errors?.['minlength']">
+          La contraseña debe tener al menos 5 caracteres.
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-success my-2"
+      [disabled]="myForm.invalid"
+      (click)="submitForm()"
+    >
+      Iniciar sesión
+    </button>
+  </form>
+</div>
